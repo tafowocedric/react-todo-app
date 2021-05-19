@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // component file
-import TodoContainer from './components/TodoContainer';
+import TodoContainer from './functionBased/components/TodoContainer';
 
 // stylesheet
-import './components/styles/App.css';
+import './functionBased/components/styles/App.css';
 
 import reportWebVitals from './reportWebVitals';
 
