@@ -11,7 +11,7 @@ export class TodosList extends Component {
         return (
             <ul>
                 {this.props.todos.map((todo) => (
-                    <TodoItem deleteTodoProps={this.props.delTodoProps} handleChangeProps={this.props.handleChangeProps} key={todo.id} todo={todo} />
+                    <TodoItem setUpdateProps={this.props.setUpdateProps} deleteTodoProps={this.props.delTodoProps} handleChangeProps={this.props.handleChangeProps} key={todo.id} todo={todo} />
                 ))}
             </ul>
         );
