@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Route, Switch } from 'react-router-dom';
 
+// components
 import Header from './Header';
 import InputTodo from './InputTodo';
 import TodosList from './TodosList';
+import About from './pages/About';
+import Error from './pages/Error';
+import Navbar from './Navbar';
 
 const TodoContainer = () => {
     function getInitialTodos() {
@@ -63,15 +68,28 @@ const TodoContainer = () => {
     };
 
     return (
-        <div>
-            <div className='container'>
-                <div className='inner'>
-                    <Header />
-                    <InputTodo addTodoProps={addTodoItem} />
-                    <TodosList todos={todos} deleteTodoProps={deleteTodo} handleUpdateCompletedProps={handleUpdateCompleted} handleUpdateTitleProps={handleUpdateTitle} />
-                </div>
-            </div>
-        </div>
+        <>
+            <Navbar />
+            <Switch>
+                <Route exact path='/'>
+                    <div>
+                        <div className='container'>
+                            <div className='inner'>
+                                <Header />
+                                <InputTodo addTodoProps={addTodoItem} />
+                                <TodosList todos={todos} deleteTodoProps={deleteTodo} handleUpdateCompletedProps={handleUpdateCompleted} handleUpdateTitleProps={handleUpdateTitle} />
+                            </div>
+                        </div>
+                    </div>
+                </Route>
+                <Route path='/about'>
+                    <About />
+                </Route>
+                <Route path='*'>
+                    <Error />
+                </Route>
+            </Switch>
+        </>
     );
 };
 

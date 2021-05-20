@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { FaTrash } from 'react-icons/fa';
 
 import styles from './styles/TodoItem.module.css';
 
@@ -52,7 +53,9 @@ const TodoItem = (props) => {
             <li className={styles.item}>
                 <div onDoubleClick={handleEditing} style={viewMode}>
                     <input className={styles.checkbox} type='checkbox' onChange={() => props.handleUpdateCompletedProps(id)} checked={completed} />
-                    <button onClick={() => props.deleteTodoProps(id)}>Delete</button>
+                    <button className='input-submit' onClick={() => props.deleteTodoProps(id)}>
+                        <FaTrash style={{ color: 'orangered', fontSize: '16px' }} />
+                    </button>
                     <span style={completed ? completedStyle : null}>{title}</span>
                 </div>
                 <input
